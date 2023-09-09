@@ -1,7 +1,7 @@
 // using System;
 // using ShapeTracker.Models;
 
-namespace ShapeTracker
+namespace PierresBakery
 {
   class Program
   {
