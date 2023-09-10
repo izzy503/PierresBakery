@@ -1,17 +1,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RockPaperScissors.Models;
+using BakeryApp.Models;
 
-namespace PierresBakery.Tests
+namespace BakeryApp.Tests
 {
-  [TestClass]
-  public class PierresBakeryTests
-  {
-
-    [TestMethod]
-    public void PierresBakeryConstructor_CreatesInstancesOf_PierresBakery()
+    [TestClass]
+    public class UnitTest1
     {
-      Game mygame = new Game();
-      Assert.AreEqual(typeof(Game), mygame.GetType());
-    }
+        [TestMethod]
+        public void BreadCost_CalculateCostForVariousQuantities_CorrectCost()
+        {
+            // Test cases for the Bread class will be implemented here.
+        }
 
-  }
+        [TestMethod]
+        public void PastryCost_CalculateCostForVariousQuantities_CorrectCost()
+        {
+            // Test cases for the Pastry class will be implemented here.
+        }
+    }
+}

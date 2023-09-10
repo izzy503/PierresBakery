@@ -1,11 +1,22 @@
-namespace PierresBakery.Models
+namespace BakeryApp.Models
 {
-  public class Game
+  public class Bread
   {
-    
+    public int Quantity { get; set; }
+    public int GetCost()
     {
-
+      // The business logic for calculating the cost of bread will be implemented here.
+      return 0; // Placeholder return value
     }
-    // Code for Triangle business logic will go here.
+  }
+
+  public class Pastry
+  {
+    public int Quantity { get; set; }
+    public int GetCost()
+    {
+      // The business logic for calculating the cost of pastry will be implemented here.
+      return 0; // Placeholder return value
+    }
   }
 }
