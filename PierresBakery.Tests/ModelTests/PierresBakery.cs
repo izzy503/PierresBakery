@@ -4,18 +4,16 @@ using BakeryApp.Models;
 namespace BakeryApp.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class BreadTests
     {
         [TestMethod]
-        public void BreadCost_CalculateCostForVariousQuantities_CorrectCost()
+        public void Bread_CreatesNewInstanceOfBread_Bread()
         {
             // Test cases for the Bread class will be implemented here.
+            Bread myBread = new Bread(1);
+            Assert.AreEqual(typeof(Bread), myBread.GetType());
         }
 
-        [TestMethod]
-        public void PastryCost_CalculateCostForVariousQuantities_CorrectCost()
-        {
-            // Test cases for the Pastry class will be implemented here.
-        }
+    
     }
 }
