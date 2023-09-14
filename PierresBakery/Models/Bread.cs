@@ -1,18 +1,24 @@
-namespace BakeryApp.Models
+namespace PierresBakery.Models
 {
-  public class Bread
-  {
-    public int Quantity { get; set; }
-
-    public Bread(int quantity)
+    public class Bread
     {
-      Quantity = quantity;
-    }
+        public int Quantity { get; private set; }
+        public int Price { get; private set; }
 
-    public int GetCost()
-    {
-      // The business logic for calculating the cost of bread will be implemented here.
-      return 0; // Placeholder return value
+        public Bread(int quantity, int price)
+        {
+            Quantity = quantity;
+            Price = price;
+        }
+
+        public int CalculateTotalCost()
+        {
+            return Quantity * Price;
+        }
+
+        public void SetQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
     }
-  }
 }

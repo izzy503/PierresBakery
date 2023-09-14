@@ -1,13 +1,24 @@
-namespace BakeryApp.Models
+namespace PierresBakery.Models
 {
-
-  public class Pastry
-  {
-    public int Quantity { get; set; }
-    public int GetCost()
+    public class Party
     {
-      // The business logic for calculating the cost of pastry will be implemented here.
-      return 0; // Placeholder return value
+        public int GuestCount { get; private set; }
+        public string Theme { get; private set; }
+
+        public Party(int guestCount, string theme)
+        {
+            GuestCount = guestCount;
+            Theme = theme;
+        }
+
+        public void SetGuestCount(int guestCount)
+        {
+            GuestCount = guestCount;
+        }
+
+        public void SetTheme(string theme)
+        {
+            Theme = theme;
+        }
     }
-  }
 }
