@@ -1,16 +1,160 @@
-<Project Sdk="Microsoft.NET.Sdk">
+[TestClass]
+public class BreadTest
+{
+    [TestMethod]
+    public void BreadConstructor_CreatesInstanceOfBread_Bread()
+    {
+        Bread newBread = new Bread(3);
+        Assert.AreEqual(typeof(Bread), newBread.GetType());
+    }
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-  </ItemGroup>
+    [TestMethod]
+    public void CalculateTotalCost_CalculateCostForTwoLoaves_Int()
+    {
+        Bread newBread = new Bread(2);
+        int result = newBread.CalculateTotalCost();
+        Assert.AreEqual(10, result);
+    }
 
-  <ItemGroup>
-    <ProjectReference Include="..\RockPaperScissors\RockPaperScissors.csproj" />  
-  </ItemGroup>
+    [TestMethod]
+    public void CalculateTotalCost_CalculateCostForThreeLoaves_Int()
+    {
+        Bread newBread = new Bread(3);
+        int result = newBread.CalculateTotalCost();
+        Assert.AreEqual(10, result);
+    }
 
-</Project>
+    // ... (similar tests for 4, 5, 6, 7 loaves)
+
+    [TestMethod]
+    public void GetFreeLoaves_CalculateFreeLoavesForSevenLoaves_Int()
+    {
+        Bread newBread = new Bread(7);
+        int result = newBread.GetFreeLoaves();
+        Assert.AreEqual(2, result);
+    }
+
+    [TestMethod]
+    public void GetEffectivePricePerLoaf_CalculateEffectivePriceForSevenLoaves_Double()
+    {
+        Bread newBread = new Bread(7);
+        double result = newBread.GetEffectivePricePerLoaf();
+        Assert.AreEqual(25.0 / 7, result, 0.001); // Adding a small delta for double comparison
+    }
+
+    [TestMethod]
+    public void IsEligibleForDiscount_CheckDiscountEligibilityForTwoLoaves_Bool()
+    {
+        Bread newBread = new Bread(2);
+        bool result = newBread.IsEligibleForDiscount();
+        Assert.AreEqual(false, result);
+    }
+
+    [TestMethod]
+    public void GetDiscountedLoafCount_CalculateDiscountedLoafCountForSevenLoaves_Int()
+    {
+        Bread newBread = new Bread(7);
+        int result = newBread.GetDiscountedLoafCount();
+        Assert.AreEqual(2, result);
+    }
+
+    [TestMethod]
+    public void UpdatePricePerLoaf_UpdatePricePerLoafToNewValue_Void()
+    {
+        Bread newBread = new Bread(3);
+        newBread.UpdatePricePerLoaf(6);
+
+        int result = newBread.CalculateTotalCost();
+        Assert.AreEqual(12, result);
+    }
+
+    [TestMethod]
+    public void SetQuantity_SetQuantityToNewValue_Void()
+    {
+        Bread newBread = new Bread(3);
+        newBread.SetQuantity(5);
+
+        int result = newBread.Quantity;
+        Assert.AreEqual(5, result);
+    }
+}
+[TestClass]
+public class PastryTest
+{
+    [TestMethod]
+    public void PastryConstructor_CreatesInstanceOfPastry_Pastry()
+    {
+        Pastry newPastry = new Pastry(4);
+        Assert.AreEqual(typeof(Pastry), newPastry.GetType());
+    }
+
+    [TestMethod]
+    public void CalculateTotalCost_CalculateCostForTwoPastries_Int()
+    {
+        Pastry newPastry = new Pastry(2);
+        int result = newPastry.CalculateTotalCost();
+        Assert.AreEqual(4, result);
+    }
+
+    [TestMethod]
+    public void CalculateTotalCost_CalculateCostForThreePastries_Int()
+    {
+        Pastry newPastry = new Pastry(3);
+        int result = newPastry.CalculateTotalCost();
+        Assert.AreEqual(6, result);
+    }
+
+    // ... (similar tests for 4, 5, 6, 7, 8 pastries)
+
+    [TestMethod]
+    public void GetFreePastries_CalculateFreePastriesForEightPastries_Int()
+    {
+        Pastry newPastry = new Pastry(8);
+        int result = newPastry.GetFreePastries();
+        Assert.AreEqual(2, result);
+    }
+
+    [TestMethod]
+    public void GetEffectivePricePerPastry_CalculateEffectivePriceForSevenPastries_Double()
+    {
+        Pastry newPastry = new Pastry(7);
+        double result = newPastry.GetEffectivePricePerPastry();
+        Assert.AreEqual(12.0 / 7, result, 0.001); // Adding a small delta for double comparison
+    }
+
+    [TestMethod]
+    public void IsEligibleForDiscount_CheckDiscountEligibilityForThreePastries_Bool()
+    {
+        Pastry newPastry = new Pastry(3);
+        bool result = newPastry.IsEligibleForDiscount();
+        Assert.AreEqual(false, result);
+    }
+
+    [TestMethod]
+    public void GetDiscountedPastryCount_CalculateDiscountedPastryCountForSevenPastries_Int()
+    {
+        Pastry newPastry = new Pastry(7);
+        int result = newPastry.GetDiscountedPastryCount();
+        Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void UpdatePricePerPastry_UpdatePricePerPastryToNewValue_Void()
+    {
+        Pastry newPastry = new Pastry(4);
+        newPastry.UpdatePricePerPastry(3);
+
+        int result = newPastry.CalculateTotalCost();
+        Assert.AreEqual(9, result);
+    }
+
+    [TestMethod]
+    public void SetQuantity_SetQuantityToNewValue_Void()
+    {
+        Pastry newPastry = new Pastry(4);
+        newPastry.SetQuantity(5);
+
+        int result = newPastry.Quantity;
+        Assert.AreEqual(5, result);
+    }
+}

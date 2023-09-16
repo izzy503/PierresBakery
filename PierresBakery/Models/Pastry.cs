@@ -1,24 +1,49 @@
 namespace PierresBakery.Models
 {
-    public class Party
+    public class Pastry
     {
-        public int GuestCount { get; private set; }
-        public string Theme { get; private set; }
+        public int Quantity { get; private set; }
+        private const int SinglePastryPrice = 2;
 
-        public Party(int guestCount, string theme)
+        public Pastry(int quantity)
         {
-            GuestCount = guestCount;
-            Theme = theme;
+            Quantity = quantity;
         }
 
-        public void SetGuestCount(int guestCount)
+        public int CalculateTotalCost()
         {
-            GuestCount = guestCount;
+            int fullPricePastries = Quantity - (Quantity / 4);
+            return fullPricePastries * SinglePastryPrice;
         }
 
-        public void SetTheme(string theme)
+        public int GetFreePastries()
         {
-            Theme = theme;
+            return Quantity / 4;
+        }
+
+        public double GetEffectivePricePerPastry()
+        {
+            return (double)CalculateTotalCost() / Quantity;
+        }
+
+        public bool IsEligibleForDiscount()
+        {
+            return Quantity >= 4;
+        }
+
+        public int GetDiscountedPastryCount()
+        {
+            return Quantity / 4;
+        }
+
+        public void UpdatePricePerPastry(int newPrice)
+        {
+            SinglePastryPrice = newPrice;
+        }
+
+        public void SetQuantity(int quantity)
+        {
+            Quantity = quantity;
         }
     }
 }
