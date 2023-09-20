@@ -3,7 +3,7 @@ namespace PierresBakery.Models
     public class Pastry
     {
         public int Quantity { get; private set; }
-        private const int SinglePastryPrice = 2;
+        public int SinglePastryPrice = 2;
 
         public Pastry(int quantity)
         {
@@ -21,19 +21,9 @@ namespace PierresBakery.Models
             return Quantity / 4;
         }
 
-        public double GetEffectivePricePerPastry()
-        {
-            return (double)CalculateTotalCost() / Quantity;
-        }
-
         public bool IsEligibleForDiscount()
         {
             return Quantity >= 4;
-        }
-
-        public int GetDiscountedPastryCount()
-        {
-            return Quantity / 4;
         }
 
         public void UpdatePricePerPastry(int newPrice)

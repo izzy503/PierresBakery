@@ -1,30 +1,90 @@
-using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PierresBakery.Models;
 
-namespace PierresBakery
+namespace PierresBakery.Tests.ModelTests
 {
-  class Program
-  {
-    static void Main(string[] args)
+    [TestClass]
+    public class BreadTest
     {
-      Console.WriteLine("Welcome to Pierre's Bakery!");
-      Console.Write("Enter the number of breads you want to buy: ");
-      int breadQuantity = int.Parse(Console.ReadLine());
+        [TestMethod]
+        public void BreadConstructor_CreatesInstanceOfBread_Bread()
+        {
+            Bread newBread = new Bread(1);
+            Assert.AreEqual(typeof(Bread), newBread.GetType());
+        }
 
-      Console.Write("Enter the price per bread: ");
-      int breadPrice = int.Parse(Console.ReadLine());
+        [TestMethod]
+        public void GetPrice_ReturnsSingleLoafPrice_Int()
+        {
+            int quantity = 1;
+            int price = 5;
+            Bread newBread = new Bread(quantity);
+            int result = newBread.SingleLoafPrice; 
+            Assert.AreEqual(price, result);
+        }
 
-      Bread newBread = new Bread(breadQuantity, breadPrice);
-      Console.WriteLine($"The total cost for bread is: {newBread.CalculateTotalCost()}");
+        [TestMethod]
+        public void CalculateTotalCost_CalculatesTotalCostForBread_Int()
+        {
+            int quantity = 2;
+            Bread newBread = new Bread(quantity);
+            int result = newBread.CalculateTotalCost();
+            Assert.AreEqual(10, result);
+        }
 
-      Console.Write("Enter the number of guests for the party: ");
-      int guestCount = int.Parse(Console.ReadLine());
+        [TestMethod]
+        public void SetQuantity_SetsNewQuantity_Void()
+        {
+            int quantity = 1;
+            Bread newBread = new Bread(quantity);
 
-      Console.Write("Enter the theme of the party: ");
-      string partyTheme = Console.ReadLine();
+            newBread.SetQuantity(3);
+            int result = newBread.Quantity;
 
-      Party newParty = new Party(guestCount, partyTheme);
-      Console.WriteLine($"The party is set for {newParty.GuestCount} guests with the theme: {newParty.Theme}");
+            Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void GetFreeLoaves_DetermineAmountofFreeLoaves_int()
+        {
+            int quantity = 3;
+            int freeloaves = 1;
+            Bread newBread = new Bread(quantity);
+
+            int testFreeLoaves = newBread.GetFreeLoaves();
+            Assert.AreEqual(freeloaves, testFreeLoaves);
+
+        } 
+
+        // IsEligibleForDiscount()
+        [TestMethod]
+        public void IsEligibleForDiscount_DeterminesIfOrderIsDiscount_bool()
+        {
+            int quantity = 5; 
+            Bread bread = new Bread(quantity);
+            bool IsEligibleForDiscount = bread.IsEligibleForDiscount();//Act
+            Assert.IsTrue(IsEligibleForDiscount); //Assert
+        }
+
+        // UpdatePricePerLoaf(int newPrice)
+        [TestMethod]
+        public void UpdatePricePerLoaf_UpdatesLoafProce_int()
+        {
+            //Arrange
+            int initialPrice = 2;
+            // int newPrice = 3;
+            int quantity = 4;
+            Bread newBread = new Bread(quantity);
+            //Act
+            newBread.UpdatePricePerLoaf(initialPrice);
+            // int updatedPrice = newBread.UpdatePricePerLoaf(3);
+            //Assert
+            Assert.AreEqual(initialPrice, newBread.SingleLoafPrice);
+            
+        }
+
     }
-  }
 }
+
+        
+
