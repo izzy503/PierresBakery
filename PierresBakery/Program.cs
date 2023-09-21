@@ -12,7 +12,7 @@ namespace PierresBakery
       int breadQuantity = int.Parse(Console.ReadLine());
 
 
-      Bread newBread = new bread(breadQuantity);
+      Bread newBread = new Bread(breadQuantity);
       Console.WriteLine($"The total cost for bread is: {newBread.CalculateTotalCost()}");
 
       Console.Write("Enter the number of pastry you want to buy: ");
