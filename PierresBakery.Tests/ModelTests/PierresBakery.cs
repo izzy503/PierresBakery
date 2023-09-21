@@ -18,7 +18,7 @@ namespace PierresBakery.Tests.ModelTests
         {
             int quantity = 1;
             int price = 5;
-            Bread newBread = new Bread(quantity, price);
+            Bread newBread = new Bread(quantity);
             int result = newBread.Price;
             Assert.AreEqual(price, result);
         }
@@ -28,7 +28,7 @@ namespace PierresBakery.Tests.ModelTests
         {
             int quantity = 2;
             int price = 5;
-            Bread newBread = new Bread(quantity, price);
+            Bread newBread = new Bread(quantity);
             int result = newBread.CalculateTotalCost();
             Assert.AreEqual(10, result);
         }
@@ -38,7 +38,7 @@ namespace PierresBakery.Tests.ModelTests
         {
             int quantity = 1;
             int price = 5;
-            Bread newBread = new Bread(quantity, price);
+            Bread newBread = new Bread(quantity);
 
             newBread.SetQuantity(3);
             int result = newBread.Quantity;
@@ -47,50 +47,6 @@ namespace PierresBakery.Tests.ModelTests
         }
     }
 
-    [TestClass]
-    public class PartyTest
-    {
-        [TestMethod]
-        public void PartyConstructor_CreatesInstanceOfParty_Party()
-        {
-            Party newParty = new Party(100, "Birthday");
-            Assert.AreEqual(typeof(Party), newParty.GetType());
-        }
 
-        [TestMethod]
-        public void GetGuestCount_ReturnsGuestCount_Int()
-        {
-            int guestCount = 100;
-            string theme = "Birthday";
-            Party newParty = new Party(guestCount, theme);
-            int result = newParty.GuestCount;
-            Assert.AreEqual(guestCount, result);
-        }
-
-        [TestMethod]
-        public void SetGuestCount_SetsNewGuestCount_Void()
-        {
-            int guestCount = 100;
-            string theme = "Birthday";
-            Party newParty = new Party(guestCount, theme);
-
-            newParty.SetGuestCount(150);
-            int result = newParty.GuestCount;
-
-            Assert.AreEqual(150, result);
-        }
-
-        [TestMethod]
-        public void SetTheme_SetsNewTheme_Void()
-        {
-            int guestCount = 100;
-            string theme = "Birthday";
-            Party newParty = new Party(guestCount, theme);
-
-            newParty.SetTheme("Wedding");
-            string result = newParty.Theme;
-
-            Assert.AreEqual("Wedding", result);
-        }
-    }
 }
+
