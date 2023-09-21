@@ -14,17 +14,17 @@ namespace PierresBakery
       Console.Write("Enter the price per bread: ");
       int breadPrice = int.Parse(Console.ReadLine());
 
-      Bread newBread = new Bread(breadQuantity, breadPrice);
-      Console.WriteLine($"The total cost for bread is: {newBread.CalculateTotalCost()}");
+      Pastry newBread = new Pastry(PastryQuantity,);
+      Console.WriteLine($"The total cost for pastry is: {newPastry.CalculateTotalCost()}");
 
-      Console.Write("Enter the number of guests for the party: ");
-      int guestCount = int.Parse(Console.ReadLine());
+      Console.Write("Enter the number of pastries you want to buy: ");
+      int pastryQuantity = int.Parse(Console.ReadLine());
 
-      Console.Write("Enter the theme of the party: ");
-      string partyTheme = Console.ReadLine();
+      Console.Write("Enter the price per pastry: ");
+      int breadPrice = int.Parse(Console.ReadLine());
 
-      Party newParty = new Party(guestCount, partyTheme);
-      Console.WriteLine($"The party is set for {newParty.GuestCount} guests with the theme: {newParty.Theme}");
+      Pastry newPastry = new Pastry(pastryQuantity,);
+      Console.WriteLine($"The total cost for pastry is: {newPastry.CalculateTotalCost()}");
     }
   }
 }
