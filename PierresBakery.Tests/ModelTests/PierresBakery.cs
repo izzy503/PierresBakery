@@ -18,8 +18,8 @@ namespace PierresBakery.Tests.ModelTests
         {
             int quantity = 1;
             int price = 5;
-            Bread newBread = new Bread(quantity);
-            int result = SingleLoafPrice;
+            Bread testBread = new Bread(quantity);
+            int result = testBread.SingleLoafPrice;
             Assert.AreEqual(price, result);
         }
 
