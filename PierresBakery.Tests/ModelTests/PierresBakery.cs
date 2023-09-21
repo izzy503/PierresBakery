@@ -19,7 +19,7 @@ namespace PierresBakery.Tests.ModelTests
             int quantity = 1;
             int price = 5;
             Bread newBread = new Bread(quantity);
-            int result = singleLoafPrice;
+            int result = SingleLoafPrice;
             Assert.AreEqual(price, result);
         }
 
